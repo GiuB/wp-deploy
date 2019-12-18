@@ -9,7 +9,7 @@ staging:
   username: db_user
   password: 'db_pass'
 local:
-  host: localhost
-  database: db_name
-  username: root
-  password: 'root'
+  host: "<%= ENV['WP_LOCAL_DB_HOST'] %>"
+  database: "<%= ENV['WP_LOCAL_DB_NAME'] %>"
+  username: "<%= ENV['WP_LOCAL_DB_USER'] %>"
+  password: "<%= ENV['WP_LOCAL_DB_PASSWORD'] %>"
