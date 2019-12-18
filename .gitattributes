@@ -1,0 +1,7 @@
+# Folders
+/config export-ignore
+/lib export-ignore
+
+# Files
+license.md export-ignore
+readme.md export-ignore

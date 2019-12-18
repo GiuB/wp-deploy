@@ -32,7 +32,7 @@ namespace :db do
     on roles(:web) do
 
       # Load the database details
-      database = YAML.load_file('config/database.yml')[fetch(:stage).to_s]
+      database = YAML.load(ERB.new(File.read('config/database.yml')).result)[fetch(:stage).to_s]
 
       # Set the confirmation message
       set :confirmed, proc {

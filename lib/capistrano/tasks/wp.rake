@@ -28,7 +28,7 @@ namespace :wp do
         # Get details for WordPress config file
         secret_keys = capture('curl -s -k https://api.wordpress.org/secret-key/1.1/salt')
         wp_siteurl = fetch(:stage_url)
-        database = YAML.load_file('config/database.yml')[fetch(:stage).to_s]
+        database = YAML.load(ERB.new(File.read('config/database.yml')).result)[fetch(:stage).to_s]
 
         # Create template file paths based on the environment
         wpconfigFilePath = "config/templates/#{fetch(:stage)}/wp-config.php.erb"
@@ -124,7 +124,7 @@ namespace :wp do
         wp_siteurl = fetch(:wp_localurl)
 
         # Create wp-config.php
-        database = YAML.load_file('config/database.yml')['local']
+        database = YAML.load(ERB.new(File.read('config/database.yml')).result)['local']
         secret_keys = capture('curl -s -k https://api.wordpress.org/secret-key/1.1/salt')
         db_config = ERB.new(File.read('config/templates/local/wp-config.php.erb')).result(binding)
         File.open('wp-config.php', 'w') { |f| f.write(db_config) }

@@ -15,11 +15,11 @@ set :wp_email, 'yourname@example.com'
 set :wp_sitename, 'WP Deploy'
 
 # The local environment URL.
-set :wp_localurl, 'http://wpdeploy.local'
+set :wp_localurl, ENV['WP_LOCAL_DB_HOST']
 
 # An identifying name for the application to be used by Capistrano
 set :application, 'wp-deploy'
-set :repo_url, 'git@github.com:Mixd/wp-deploy.git'
+set :repo_url, 'git@github.com:GiuB/wp-deploy.git'
 
 
 ################################################################################
