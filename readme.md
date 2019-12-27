@@ -47,4 +47,4 @@ Copy `config/.env.local.example` rename to `config/.env.local` and replace them 
 Edit your .gitignore file and comment all lines starting with `config/*`
 Then add to .gitignore `config/.env.local`
 
-In your `config/deploy.rb` edit `wp_localurl` line like this:
+In your `config/deploy.rb` edit `wp_localurl` line like this::
