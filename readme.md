@@ -48,3 +48,6 @@ Edit your .gitignore file and comment all lines starting with `config/*`
 Then add to .gitignore `config/.env.local`
 
 In your `config/deploy.rb` edit `wp_localurl` line like this:
+```
+set :wp_localurl, ENV['WP_LOCAL_URL']
+```
